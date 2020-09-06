@@ -1,0 +1,101 @@
+﻿@model eBus.web.ViewModels.SjedistaVM
+@{
+    Layout = "_PutnikLayout";
+    ViewData["Title"] = "Prikazi sjedista";
+    string error_poruka = (string)TempData["poruka"];
+    string uspjeh = (string)TempData["uspjesno"];
+}
+
+<!-- ======= Suscribe Section ======= -->
+<div class="suscribe-area kreirajRazmak">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+                <div class="suscribe-text text-center">
+                    <h3>Sjedišta</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- End Suscribe Section -->
+@if (error_poruka != null)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: -25px;">
+        <strong>Obavijest: </strong> @error_poruka
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+else if (uspjeh != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: -25px;">
+        <strong>Obavijest: </strong> @uspjeh
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<div class="row">
+    <div class="col-md-3">
+        <div class="slobodno">
+            <p>SLOBODNO</p>
+        </div>
+        <div class="zauzeto">
+            <p>ZAUZETO</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+
+        @if (Model.listaSjedista.Count > 0)
+        {
+            @foreach (var item in Model.listaSjedista)
+            {
+                if (item.Rezervisano == true)
+                {
+                    <div class="sjediste"><button class="btn btn-danger urediDugme" disabled>@item.Lokacija</button></div>
+                }
+                else
+                {
+                    <div class="sjediste">@Html.ActionLink(item.Lokacija, "Rezervisi", "Linije", new { sjedisteId = item.Id, datum = Model.Datum, vrijeme = Model.Vrijeme }, new { @class = "btn btn-success urediDugme" })</div>
+
+                }
+            }
+        }
+
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<style>
+    .slobodno {
+        width: 100px;
+        height: 20px;
+        background-color: green;
+        text-align: center;
+        margin-top: 20px;
+        position: fixed;
+        z-index: -10;
+    }
+
+        .slobodno p {
+            color: white;
+        }
+
+    .zauzeto {
+        width: 100px;
+        height: 20px;
+        background-color: red;
+        text-align: center;
+        position: fixed;
+        z-index: -10;
+    }
+
+        .zauzeto p {
+            color: white;
+        }
+</style>
+
+

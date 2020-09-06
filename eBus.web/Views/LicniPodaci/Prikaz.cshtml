@@ -1,0 +1,85 @@
+﻿@model eBus.Model.Putnik
+@{
+    Layout = "_PutnikLayout";
+    ViewData["Title"] = "Prikaz";
+}
+
+<div class="suscribe-area kreirajRazmak">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+                <div class="suscribe-text text-center">
+                    <h3>Lični podaci</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- End Suscribe Section -->
+
+<section class="services" style="padding-top: 20px;">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <div class="icon-box icon-box-pink" style="padding:10px; margin: 0 0 20px 0;">
+                        <img src=@(string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Slika))) class="img-responsive mx-auto d-block" style="width:150px" alt="...">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-12" data-aos="fade-up">
+                <div class="col-md-12">
+                    <div class="icon-box icon-box-pink" style="padding:10px; margin: 0 0 20px 0; text-align:center; background-color:lightblue">
+                        <p class="description" style="margin:5px;">Ime i prezime:</p>
+                        <h4 class="title" style="margin:5px; color:darkblue;">@Model.Ime   @Model.Prezime</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6" data-aos="fade-up">
+                <div class="col-md-12">
+                    <div class="icon-box icon-box-pink" style="padding:10px; margin: 0 0 20px 0;text-align:center;background-color:lightblue">
+                        <p class="description" style="margin:5px;">Email:</p>
+                        <h4 class="title" style="margin:5px;color:darkblue;">@Model.Email</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-up">
+                <div class="col-md-12">
+                    <div class="icon-box icon-box-pink" style="padding:10px; margin: 0 0 20px 0;text-align:center;background-color:lightblue">
+                        <p class="description" style="margin:5px;">Datum rođenja:</p>
+                        <h4 class="title" style="margin:5px;color:darkblue;">@Model.DatumRodjenja.Value.ToString("dd-MM-yyyy")</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="icon-box icon-box-pink" style="padding:10px; margin: 0 0 20px 0;text-align:center;background-color:lightblue">
+                        <p class="description" style="margin:5px;">Korisničko ime:</p>
+                        <h4 class="title" style="margin:5px;color:darkblue;">@Model.KorisnickoIme</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="icon-box icon-box-pink" style="padding:10px; margin: 0 0 20px 0;text-align:center;background-color:lightblue">
+                        <p class="description" style="margin:5px;">Datum registracije:</p>
+                        <h4 class="title" style="margin:5px;color:darkblue;">@Model.DatumRegistracije</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="text-align:center; padding:15px;">
+                <a href="/LicniPodaci/Uredi" class="btn btn-light btn-lg active col-md-5" style="padding:10px;" role="button" aria-pressed="true">Uredi</a>
+            </div>
+        </div>
+    </div>
+</section><!-- End Services Section -->

@@ -1,0 +1,26 @@
+﻿@model eBus.Model.Rezervacija;
+@{
+    ViewData["Title"] = "Detalji";
+}
+
+    
+        <div class="modal-dialog modal-dialog-centered" id="detailDiv">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">@Model.DatumKreiranja</h4>
+                    <button type="button" id="closeBtn" class="close" data-dismiss="modal" onclick="closeDetails()">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img src=@(string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Qrcode))) class="img-responsive mx-auto d-block" style="width:250px" alt="...">
+
+                </div>
+
+
+
+            </div>
+        </div>
+  

@@ -1,0 +1,144 @@
+﻿@model eBus.web.ViewModels.NotifikacijeVM
+@{
+    Layout = "_PutnikLayout";
+    ViewData["Title"] = "Prikazi notifikacije";
+}
+
+
+<!-- ======= Testimonials Section ======= -->
+<div class="testimonials-area urediNot">
+    <div class="testi-inner area-padding">
+        <div class="testi-overly"></div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <!-- Start testimonials Start -->
+                    <div class="testimonial-content text-center">
+
+                        <!-- start testimonial carousel -->
+                        <div class="owl-carousel testimonial-carousel">
+                            @if (Model.ListaNOtifikacija.Count > 0)
+                            {
+                                <div class="single-testi">
+                                    <div class="testi-text">
+                                        <p>
+                                            Imate nove obavjesti!
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <!-- End single item -->
+                            }
+                            else
+                            {
+                                <div class="single-testi">
+                                    <div class="testi-text">
+                                        <p>
+                                            Trenutno nemate  obavjesti
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <!-- End single item -->
+                            }
+
+
+
+                        </div>
+                    </div>
+                    <!-- End testimonials end -->
+                </div>
+                <!-- End Right Feature -->
+            </div>
+        </div>
+    </div>
+</div><!-- End Testimonials Section -->
+<!-- ======= Blog Section ======= -->
+
+<div class="row">
+
+
+    @if (Model.ListaNOtifikacija.Count > 0)
+    {
+        @foreach (var item in Model.ListaNOtifikacija)
+        {
+           
+            <div class="col-md-12" >
+                <a href="/Novosti/PrikaziNovost?novostId=@item.NovostId" class="urediN">
+                    <div class="noselect">
+                        <h3 >@item.Naslov</h3>
+                        <p>@item.DatumSlanja</p>
+
+
+                    </div>
+                    <div class="noselect">
+                        @*<a href="/Notifikacije/PrikaziNovost?id=@item.NovostId" class="btn btn-outline-success">Prikazi</a>*@
+                    
+                        
+                            <label class="labelBtn"  > Obavijest pročitana: </label>
+                            <input type="checkbox" data-recordid="@item.Id" asp-for="@item.Procitano" class="btnC"/>
+
+                        
+                    </div>
+                </a>
+            </div>
+            
+
+        }
+    }
+    else
+    {
+
+
+
+    }
+
+
+</div>
+
+
+<style>
+    .btnC {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .labelBtn {
+        position: absolute;
+        bottom: 0;
+        right: 20px;
+        margin: 0;
+    }
+
+
+
+    .urediN {
+        width: 100%;
+        height: 120px;
+        border: 1px solid #333;
+        font-family: 'Cinzel', serif;
+        font-size: 20px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 0;
+        transition: 1s;
+        margin-bottom:10px;
+    }
+
+        .urediN::before, .urediN::after {
+            position: absolute;
+            background: #eee;
+            z-index: -1;
+            transition: 1s;
+            content: '';
+        }
+
+       
+
+   
+</style>

@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />*@
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/nivo-slider/css/nivo-slider.css" rel="stylesheet">
+    <link href="~/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link  href="~/css/mystyle.css" rel="stylesheet"/>
+
+    <script>
+        function prikaziBrojNotifikacija() {
+            var urlzapoziv = "/Notifikacije/BrojNotifikacija";
+            $.ajax({
+                type: "POST",
+                url: urlzapoziv,
+                success: function (data) {
+
+                    $("#brojNotif").html(data);
+                }
+            });
+
+        }
+    </script>
+</head>
+<body onload="prikaziBrojNotifikacija()">
+
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex">
+
+            <div class="logo mr-auto">
+                <h1 class="text-light"><a href="index.html"><span>e</span>Bus</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li ><a asp-controller="Home" asp-action="Index">Početna</a></li>
+                    <li><a asp-controller="Home" asp-action="Onama">O nama</a></li>
+                    <li><a asp-controller="Kompanije" asp-action="Prikaz">Kompanije</a></li>
+                    <li><a asp-controller="Linije" asp-action="Prikaz">Linije</a></li>
+                    @if (eBus.web.Helper.APIService.Username != null)
+                    {
+                        <li><a asp-controller="Rezervacije" asp-action="Prikaz">Rezervacije</a></li>
+
+                        //<li><a asp-controller="Notifikacije" asp-action="PrikaziNotifikacije">Notifikacije</a></li>
+                        <li><a asp-controller="Novosti" asp-action="Prikaz">Novosti</a></li>
+                        //<li><a asp-controller="LicniPodaci" asp-action="Prikaz">Profil</a></li>
+                    }
+
+
+                    @if (eBus.web.Helper.APIService.Username == null)
+                    {
+                        <li><a asp-controller="Login" asp-action="PrijaviSe">Prijavi se</a></li>
+                    }
+                    else
+                    {
+                        //<li><a asp-controller="Login" asp-action="OdjaviSe">Odjavi se</a></li>
+                        <li class="drop-down">
+                            <a href="">@eBus.web.Helper.APIService.Username</a>
+                            <ul>
+                                <li><a asp-controller="LicniPodaci" asp-action="Prikaz"><i class="fa fa-user-circle-o" style="padding-right:5px"></i>Lični podaci</a></li>
+                                <li><a asp-controller="Notifikacije" asp-action="PrikaziNotifikacije" class="notification"><i class="fa fa-bell-o" style="padding-right:5px"></i>Notifikacije <span class="badge" id="brojNotif">4</span></a></li>
+                                <li><a asp-controller="Login" asp-action="OdjaviSe"><i class="fa fa-sign-out" style="padding-right:5px"></i>Odjavi se</a></li>
+                               
+                            </ul>
+                        </li>
+                    }
+
+
+                </ul>
+
+            </nav><!-- .nav-menu -->
+
+
+        </div>
+
+    </header><!-- End Header -->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- ======= Footer ======= -->
+    <footer>
+        <div class="footer-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="footer-content">
+                            <div class="footer-head">
+                                <div class="footer-logo">
+                                    <h2><span>e</span>Bus</h2>
+                                </div>
+
+                                <p>Prva aplikacija koja nudi sve usluge prevoza na jednom mjestu.Ne čekate više na prevoz, on čeka vas</p>
+                                <div class="footer-icons">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-google"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end single footer -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="footer-content">
+                            <div class="footer-head">
+                                <h4>informacije</h4>
+                                <p>
+                                    U slučaju bilo kakvih nesigurnosti, kontaktiraj te nas!
+                                </p>
+                                <div class="footer-contacts">
+                                    <p><span>Tel:</span> +123 456 789</p>
+                                    <p><span>Email:</span> ebus@mail.com</p>
+                                    <p><span>Radni sati:</span> 8am-23pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end single footer -->
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="copyright text-center">
+                            <p>
+                                &copy; Copyright <strong>eBus</strong>. Sva prava pridržana
+                            </p>
+                        </div>
+                        <div class="credits">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)*@
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/appear/jquery.appear.js"></script>
+    <script src="~/assets/vendor/knob/jquery.knob.js"></script>
+    <script src="~/assets/vendor/parallax/parallax.js"></script>
+    <script src="~/assets/vendor/wow/wow.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/nivo-slider/js/jquery.nivo.slider.js"></script>
+    <script src="~/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/vendor/venobox/venobox.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+    <script src="~/js/myjs.js"></script>
+
+    <script>
+        function prikaziKompanije() {
+            var urlzapoziv = "/Kompanije/PrikaziRangListu";
+            $.ajax({
+                type: "POST",
+                url: urlzapoziv,
+                success: function (data) {
+                    $(".rangLista").html(data);
+                }
+            });
+        }
+        $(document).ready(function () {
+
+            prikaziKompanije();
+            $(".ajaxRezultat").click(function () {
+
+                var id = $(this).attr('data-recordid');
+
+                var urlzapoziv = "/Rezervacije/Detalji?id=" + id;
+
+                $.ajax({
+                    type: "POST",
+                    url: urlzapoziv,
+                    success: function (data) {
+                        $(".ovde").html(data);
+                    }
+                });
+            });
+
+           
+
+            $(".pretrazi").click(function () {
+                var polaziste, odrediste, datum, loader;
+
+                loader = document.getElementById("myLoader");
+
+                loader.style.display = "block";
+
+                polaziste = document.getElementById("polaziste").value;
+                odrediste = document.getElementById("myInput").value;
+                datum = document.getElementById("datum").value;
+
+                var urlzapoziv = "/Linije/PretraziLinije?polaziste=" + polaziste + "&odrediste=" + odrediste + "&datum=" + datum;
+
+
+                $.ajax({
+                    type: "POST",
+                    url: urlzapoziv,
+                    success: function (data) {
+                        loader.style.display = "none";
+                        $(".prikaziLinije").html(data);
+                    }
+                });
+
+            });
+
+
+
+            
+
+
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@model eBus.Model.Novosti;
+@{
+    Layout = "_PutnikLayout";
+    ViewData["Title"] = "Detalji";
+}
+
+<div id="about" class="about-area area-padding" style="margin-top:20px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="section-headline text-center">
+                    <h2>Pregled novosti</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="well-left">
+                    <div class="single-well">
+                        <a href="#">
+                         
+                            <img src=@(string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Slika))) alt="...">
+                        </a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="well-middle">
+                    <div class="single-well">
+                        <a href="#">
+                            <h4 class="sec-head">@Model.Naslov</h4>
+                        </a>
+                        <p>
+                            @Model.Sadrzaj
+                        </p>
+                        <ul>
+                            <li>
+                                <i class="fa fa-calendar"></i> @Model.DatumObjave
+                            </li>
+                            <li>
+                                <i class="fa fa-user"></i> @Model.Korisnik.KorisnickoIme
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+
+</div>
+   

@@ -1,0 +1,213 @@
+﻿@{
+    ViewData["Title"] = "Početna";
+}
+
+<!-- ======= Slider Section ======= -->
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+<!-- ======= Skills Section ======= -->
+
+<div id="home" class="slider-area">
+    <div class="bend niceties preview-2">
+        <div id="ensign-nivoslider" class="slides">
+            <img src="~/assets/img/slider/busslider1.jpg" alt="" title="#slider-direction-1" />
+            <img src="~/assets/img/slider/busslider2.jpg" alt="" title="#slider-direction-2" />
+            <img src="~/assets/img/slider/busslider3.jpg" alt="" title="#slider-direction-3" />
+        </div>
+
+        <!-- direction 1 -->
+        <div id="slider-direction-1" class="slider-direction slider-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="slider-content">
+                            <!-- layer 1 -->
+                            <div class="layer-1-1 hidden-xs wow animate__slideInDown animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+                                <h2 class="title1">Sve usluge na jednom mjestu.</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+                                <h1 class="title2">Iskoristite pogodnosti eBus aplikacije!</h1>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+
+                                <a class="ready-btn page-scroll" asp-controller="Login" asp-action="PrijaviSe">Prijavi se</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- direction 2 -->
+        <div id="slider-direction-2" class="slider-direction slider-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="slider-content text-center">
+                            <!-- layer 1 -->
+                            <div class="layer-1-1 hidden-xs wow animate__slideInDown animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+                                <h2 class="title1">Sve usluge na jednom mjestu.</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+                                <h1 class="title2">Iskoristite pogodnosti eBus aplikacije!</h1>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+
+                                <a class="ready-btn page-scroll" asp-controller="Login" asp-action="PrijaviSe">Prijavi se</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- direction 3 -->
+        <div id="slider-direction-3" class="slider-direction slider-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="slider-content">
+                            <!-- layer 1 -->
+                            <div class="layer-1-1 hidden-xs wow animate__slideInDown animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+                                <h2 class="title1">Sve usluge na jednom mjestu.</h2>
+                            </div>
+                            <!-- layer 2 -->
+                            <div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+                                <h1 class="title2">Iskoristite pogodnosti eBus aplikacije!</h1>
+                            </div>
+                            <!-- layer 3 -->
+                            <div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+
+                                <a class="ready-btn page-scroll" asp-controller="Login" asp-action="PrijaviSe">Prijavi se</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- End Slider -->
+<!-- ======= Services Section ======= -->
+<div id="services" class="services-area area-padding" style="margin-top:30px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="section-headline services-head text-center">
+                    <h2>Prednosti</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <!-- Start Left services -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="about-move">
+                    <div class="services-details">
+                        <div class="single-services">
+                            <a class="services-icon" href="#">
+                                <i class="fa fa-h-square"></i>
+                            </a>
+                            <h4>Sigurnost</h4>
+                            <p>
+                                Polazna osnova je sigurnost, a ona je zagrantovana od strane svih kompanija koje su registrovane na ovoj usluzi.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end about-details -->
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="about-move">
+                    <div class="services-details">
+                        <div class="single-services">
+                            <a class="services-icon" href="#">
+                                <i class="fa fa-user"></i>
+                            </a>
+                            <h4>Posvećenost</h4>
+                            <p>
+                                Ulaže se puno vremena kako bi svaku putnik ponaosob bio zadovoljan.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end about-details -->
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <!-- end col-md-4 -->
+                <div class=" about-move">
+                    <div class="services-details">
+                        <div class="single-services">
+                            <a class="services-icon" href="#">
+                                <i class="fa fa-bus"></i>
+                            </a>
+                            <h4>Vozila</h4>
+                            <p>
+                                Svako vozilo prati sve svjetske standarde.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end about-details -->
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <!-- end col-md-4 -->
+                <div class=" about-move">
+                    <div class="services-details">
+                        <div class="single-services">
+                            <a class="services-icon" href="#">
+                                <i class="fa fa-clock-o"></i>
+                            </a>
+                            <h4>Stigni na vrijeme</h4>
+                            <p>
+                                Do odredišta uz udobno putovanje i na vrijeme : 9 od 10 autobusa stigne na vrijeme!
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end about-details -->
+                </div>
+            </div>
+            <!-- End Left services -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <!-- end col-md-4 -->
+                <div class=" about-move">
+                    <div class="services-details">
+                        <div class="single-services">
+                            <a class="services-icon" href="#">
+                                <i class="fa fa-info-circle"></i>
+                            </a>
+                            <h4>Informisanost</h4>
+                            <p>
+                                Budite informisani o promjenama svih kompanija u bilo koje doba.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end about-details -->
+                </div>
+            </div>
+            <!-- End Left services -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <!-- end col-md-4 -->
+                <div class=" about-move">
+                    <div class="services-details">
+                        <div class="single-services">
+                            <a class="services-icon" href="#">
+                                <i class="fa fa-suitcase"></i>
+                            </a>
+                            <h4>Prtljaga</h4>
+                            <p>
+                                Sigurnost vas i vaših stvari na prvom mjestu!
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end about-details -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- End Services Section -->

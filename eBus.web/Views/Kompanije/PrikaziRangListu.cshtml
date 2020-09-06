@@ -1,0 +1,21 @@
+﻿@model eBus.web.ViewModels.KompanijeVM;
+@{
+    ViewData["Title"] = "PrikaziRangListu";
+    int brojac = 1;
+}
+
+@foreach (var item in Model.ListaKomanija)
+{
+    <div class="recent-single-post">
+        <div class="post-img">
+            <a href="#">
+                <img src=@(string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Slika))) alt="...">
+            </a>
+        </div>
+        <div class="pst-content">
+            <p><a href="#">@(brojac++). @item.Naziv</a></p>
+        </div>
+    </div>
+    <!-- End single post -->
+}
+<!-- start single post -->

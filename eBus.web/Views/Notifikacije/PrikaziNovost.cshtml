@@ -1,0 +1,67 @@
+﻿@model eBus.Model.Novosti
+@{
+    Layout = "_PutnikLayout";
+    ViewData["Title"] = "PrikaziNovost";
+
+
+    int brojPregelda = (int)TempData["brojacPregelda"];
+}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline services-head text-center">
+                <h2>Novost</h2>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-3 ">
+        <h3>Naslov:</h3>
+    </div>
+    <div class="col-md-3 ">
+        <h6>@Model.Naslov</h6>
+    </div>
+    <div class="col-md-3 ">
+        <h3>Datum obajve :</h3>
+    </div>
+    <div class="col-md-3 ">
+        <h6>@Model.DatumObjave</h6>
+    </div>
+</div>
+
+<div class="row" style="margin-top:20px;">
+    <div class="col-md-4 ">
+        <h3>Sadrzaj :</h3>
+    </div>
+    <div class="col-md-8 ">
+        <h6>@Model.Sadrzaj</h6>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+
+    <div class="col-md-3 ">
+        <p>Autor :</p>
+    </div>
+    <div class="col-md-3 ">
+        <p></p>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <p>Broj pregeleda </p>
+    </div>
+    <div class="col-md-8 ">
+        <i class="fa fa-eye"></i>
+        @brojPregelda
+    </div>
+</div>
+

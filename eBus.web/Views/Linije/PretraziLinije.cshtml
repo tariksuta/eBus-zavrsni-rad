@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Pretraga linija";
+}
+
+@if (Model.PrikaziLinije.Count > 0)
+{
+    @if (eBus.web.Helper.APIService.Username == null)
+    {
+        <br />
+        <div class="text-center">
+            <span style="font-family: Helvetica, Arial, sans-serif; border:solid 1px red; font-size: 14px; color:red; padding:5px; ">
+                Niste u mogučosti da
+                rezervišete kartu.<a href="~/Login/PrijaviSe">Prijavi se</a>
+            </span>
+        </div>
+        <br />
+    }
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                   
+                    <th scope="col">Polazište</th>
+                    <th scope="col">Odredište</th>
+                    <th scope="col">Vrijeme</th>
+                    <th scope="col">Kompanija</th>
+                    <th scope="col">Cijena</th>
+                    <th scope="col">Detalji</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.PrikaziLinije)
+                {
+                    <tr>
+                    
+                        <td>@item.PolazisteNaziv</td>
+                        <td>@item.OdredisteNaziv</td>
+                        <td>@item.VrijemePolaska</td>
+                        <td>@item.Kompanija</td>
+                        <td>@item.Cijena KM</td>
+                        @if (eBus.web.Helper.APIService.Username == null)
+                        {
+                            <td><a href="/Linije/Detalji?id=@item.kartaID" style="pointer-events:none; cursor:default" class="btn btn-danger">Detalji</a></td>
+                        }
+                        else
+                        {
+                            <td><a href="/Linije/Detalji?id=@item.kartaID" class="btn btn-danger">Detalji</a></td>
+                        }
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+}
+
+<style>
+    .table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .table tr:hover {
+        background-color: #ddd;
+    }
+</style>

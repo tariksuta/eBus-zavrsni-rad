@@ -1,0 +1,102 @@
+﻿@model eBus.web.ViewModels.RegistracijaVM
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Registruj se";
+
+    string error = (string)ViewData["error_poruka"];
+}
+
+<div class="container-login100" style="background-image: url('images/back.jpg');">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30" style="width : 600px">
+        <form method="post" enctype="multipart/form-data" class="login100-form validate-form" action="Registracija">
+            <span class="login100-form-title p-b-37">
+                Sign Up
+            </span>
+
+            @if (error != null)
+            {
+                <br />
+                <div class="text-center">
+                    <span style="font-family: Helvetica, Arial, sans-serif; border:solid 1px red; font-size: 14px; color:red; padding:5px; "> @error </span>
+                </div>
+                <br />
+            }
+
+            <div class="uredi validate-input m-b-20" data-validate="Unesite vaše ime">
+                <input class="input100" type="text" name="Ime" asp-for="@Model.Ime" placeholder="Ime ">
+                <span class="focus-input100"></span>
+
+
+
+            </div>
+
+            <div class="uredi validate-input m-b-25" data-validate="Unesite vaše prezime">
+                <input class="input100" type="text" name="Prezime" asp-for="@Model.Prezime" placeholder="Prezime">
+                <span class="focus-input100"></span>
+
+
+            </div>
+
+            <div class="uredi validate-input m-b-25" data-validate="Unesite email">
+                <input class="input100" type="email" name="Email" asp-for="@Model.Email" placeholder="Email">
+                <span class="focus-input100"></span>
+
+            </div>
+
+            <div class="uredi validate-input m-b-25" data-validate="Unesite vaš datum rođenja">
+                <input class="input100" type="date" asp-for="@Model.DatumRodjenja" placeholder="Datum rođenja" >
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="uredi validate-input m-b-25" data-validate="Unesite vaše korisničko ime">
+                <input class="input100" type="text" name="KorisnickoIme" asp-for="@Model.KorisnickoIme" placeholder="Korisničko ime">
+                <span class="focus-input100"></span>
+
+            </div>
+
+
+
+            <div class="uredi validate-input m-b-25" data-validate="Unesite vašu lozinku">
+                <input class="input100" type="password" name="Lozinka" asp-for="@Model.Lozinka" placeholder="Lozinka">
+                <span class="focus-input100"></span>
+
+            </div>
+
+            <div class="uredi validate-input m-b-25" data-validate="Potvrdite lozinku">
+                <input class="input100" type="password" name="PotvrdiLozinku" asp-for="@Model.PotvrdiLozinku" placeholder="Potvrdite lozinku">
+                <span class="focus-input100"></span>
+
+
+            </div>
+
+            <div class="uredi validate-input m-b-25" data-validate="Unesite vašu sliku">
+                <input type="file" asp-for="@Model.Slika" name="Slika" placeholder="Slika" >
+                <span class="focus-input100"></span>
+                <span asp-validation-for="Slika" class="text-danger"></span>
+
+            </div>
+
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit">
+                    Registruj se
+                </button>
+            </div>
+            <div style="clear:both;"></div>
+        </form>
+
+
+    </div>
+</div>
+
+<style>
+
+    .uredi {
+        float: left;
+        width: calc(50% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+        background-color: #fff;
+        border-radius: 20px;
+    }
+</style>
+

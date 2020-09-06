@@ -1,0 +1,131 @@
+﻿@model eBus.web.ViewModels.LinijeDetaljiVM;
+@{
+   
+    Layout = "_PutnikLayout";
+    ViewData["Title"] = "Detalji";
+}
+
+<!-- ======= Services Section ======= -->
+
+<div id="services" class="services-area area-padding">
+    <div class="container" style="margin-top:10px;">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="section-headline services-head text-center">
+                    <h2>Detalji</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+        
+
+      
+            <div class="col-md-12 razmakRedova">
+                <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="float-left" style="padding-left:150px;">
+                            <a class="services-icon" data-toggle="tooltip" title="Polazište!" href="#">
+                                <i class="fa fa-check"></i>
+                            </a>
+                            <h3 style="color:white">@Model.PolazisteNaziv</h3>
+                        </div>
+                        <div class="float-right" style="padding-right:150px;">
+                            <a class="services-icon" data-toggle="tooltip" title="Odredište!" href="#">
+                                <i class="fa fa-bullseye"></i>
+                            </a>
+                            <h3 style="color:white">@Model.OdredisteNaziv</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 razmakRedova">
+                <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="float-left" style="padding-left:150px; ">
+                            <a class="services-icon" data-toggle="tooltip" title="Vrijeme polaska!" href="#">
+                                <i class="fa fa-clock-o"></i>
+                            </a>
+                            <h3 style="color:white">@Model.VrijemePolaska</h3>
+                        </div>
+                        <div class="float-right" style="padding-right:150px;">
+                            <a class="services-icon" data-toggle="tooltip" title="Vrijeme dolaska!" href="#">
+                                <i class="fa fa-clock-o"></i>
+                            </a>
+                            <h3 style="color:white">@Model.VrijemeDolaska</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 razmakRedova">
+                <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="float-left" style="padding-left:150px;">
+                            <a class="services-icon" data-toggle="tooltip" title="Datum!" href="#">
+                                <i class="fa fa-calendar"></i>
+                            </a>
+                            <h3 style="color:white">@Model.DatumPretrage.ToString("dd-MM-yyyy")</h3>
+                        </div>
+                        <div class="float-right" style="padding-right:150px;">
+                            <a class="services-icon" data-toggle="tooltip" title="Cijena karte!" href="#">
+                                <i class="fa fa-money"></i>
+                            </a>
+                            <h3 style="color:white">@Model.Cijena KM</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 razmakRedova">
+                <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                        <div class="float-left" style="padding-left:150px;">
+                            <a class="services-icon" data-toggle="tooltip" title="Kompanija!" href="#">
+                                <i class="fa fa-building-o"></i>
+                            </a>
+                            <div>
+                                <h3 style="color:white">@Model.Kompanija</h3>
+                            </div>
+                        </div>
+                        <div class="float-right" style="padding-right:150px;">
+                            <a class="services-icon" data-toggle="tooltip" title="Vozilo kompanije!" href="#">
+                                <i class="fa fa-bus"></i>
+                            </a>
+                            <h3 style="color:white">@Model.Vozilo</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12 razmakRedova">
+                @Html.ActionLink("Sjedišta", "PrikaziSjedista", new { id = Model.voziloId, datum = Model.DatumPretrage, vrijeme = Model.VrijemePolaska },  new { @class = "btn btn-success izmD" })
+
+            </div>
+        </div>
+    </div>
+</div><!-- End Services Section -->
+
+<style>
+    .izmD{
+        width:100%;
+    }
+
+    .razmakRedova{
+        margin-top:10px;
+        margin-bottom:10px;
+    
+    }
+
+    .col-md-12{
+      height:100px;
+    }
+   
+</style>

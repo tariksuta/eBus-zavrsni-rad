@@ -1,0 +1,74 @@
+﻿@model eBus.web.ViewModels.LoginVM
+@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Prijavi se";
+
+    string error = (string)TempData["error_poruka1"];
+    string error2 = (string)ViewData["error_poruka2"];
+}
+
+<div class="container-login100" style="background-image: url('images/back.jpg');">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+        <form class="login100-form validate-form" action="Prijava">
+            <span class="login100-form-title p-b-37">
+                Sign In
+            </span>
+
+            @if (error != null)
+            {
+                <br />
+                <div class="text-center">
+                    <span style="font-family: Helvetica, Arial, sans-serif; border:solid 1px red; font-size: 14px; color:red; padding:5px; "> @error </span>
+                </div>
+                <br />
+            }
+
+            @if (error2 != null)
+            {
+                <br />
+                <div class="text-center" style="background-color:transparent">
+                    <span style="font-family: Helvetica, Arial, sans-serif; border:solid 1px red; font-size: 14px; color:white; padding:5px; "> @error2 </span>
+                </div>
+                <br />
+            }
+
+            <div class="wrap-input100 validate-input m-b-20" data-validate="Unesite korisničko ime ">
+                <input class="input100" type="text" asp-for="@Model.KorisnickoIme" placeholder="Korisničko ime ">
+                <span class="focus-input100"></span>
+
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-25" data-validate="Unesite lozinku">
+                <input class="input100" type="password" asp-for="@Model.Lozinka" placeholder="Lozinka">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit">
+                    Sign In
+                </button>
+            </div>
+
+            <div class="text-center p-t-57 p-b-20">
+                <span class="txt1">
+                    Nemate račun? Registruj se!
+                </span>
+            </div>
+
+
+
+            <div class="text-center">
+                <a href="~/Login/RegistrujSe" class="txt2 hov1" >
+                    Sign Up
+                </a>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+
+
+<div id="dropDownSelect1"></div>
+

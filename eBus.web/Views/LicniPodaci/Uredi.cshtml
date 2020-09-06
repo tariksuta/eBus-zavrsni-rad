@@ -1,0 +1,159 @@
+﻿@model eBus.web.ViewModels.LicniPodaciUrediVM;
+@using System.IO;
+
+@{
+    Layout = "_PutnikLayout";
+    ViewData["Title"] = "Uredi";
+    string error_poruka = (string)ViewData["error_poruka"];
+
+
+
+}
+<div class="suscribe-area kreirajRazmak">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+                <div class="suscribe-text text-center">
+                    <h3>Lični podaci</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- End Suscribe Section -->
+
+<section class="services" style="padding-top: 20px;">
+    <div class="container">
+        @if (error_poruka != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: -25px;">
+                <strong>Upozorenje: </strong> @error_poruka
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate action="Snimi">
+
+            <input type="text" hidden name="Id" asp-for="@Model.Id" />
+            <input type="datetime" hidden name="DatumRegistracije" asp-for="@Model.DatumRegistracije" />
+            <input type="datetime" hidden name="DatumRodjenja" asp-for="@Model.DatumRodjenja" />
+            <input type="text" hidden asp-for="@Model.StaraSlika" />
+
+
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <div class="icon-box icon-box-pink" style="padding:10px; margin: 0 0 20px 0;">
+                        <img src=@(string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Slika))) class="img-responsive mx-auto d-block" style="width:150px" alt="...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom01">Ime</label>
+                    <input asp-for="@Model.Ime" type="text" class="form-control" id="validationCustom01" placeholder="Ime" required>
+                    <div class="valid-feedback">
+                        Izgleda dobro!
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom02">Prezime</label>
+                    <input asp-for="@Model.Prezime" type="text" class="form-control" id="validationCustom02" placeholder="Prezime" required>
+                    <div class="valid-feedback">
+                        Izgleda dobro!
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom03">Email</label>
+                    <input asp-for="@Model.Email" type="email" class="form-control" id="validationCustom03" placeholder="Email" required>
+                    <div class="valid-feedback">
+                        Izgleda dobro!
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom03">Promjeni sliku</label>
+                    <input type="file" name="SlikaZaDodat" asp-for="@Model.SlikaZaDodat" class="form-control" />
+                    <div class="valid-feedback">
+                        Izgleda dobro!
+                    </div>
+                </div>
+
+            </div>
+
+            <br />
+
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustomUsername">Korisničko ime</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend">\</span>
+                        </div>
+                        <input asp-for="@Model.KorisnickoIme" type="text" class="form-control" id="validationCustomUsername" placeholder="Korisničko ime" aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Molimo odaberite korisničko ime.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="validationCustom05">Stara lozinka</label>
+                        <input asp-for="@Model.Lozinka" type="password" class="form-control" id="validationCustom05" placeholder="Stara lozika" required>
+                        <div class="valid-feedback">
+                            Izgleda dobro!
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom06">Lozinka</label>
+                    <input asp-for="@Model.Lozinka" type="password" class="form-control" id="validationCustom06" placeholder="Nova lozika">
+                    <div class="valid-feedback">
+                        Izgleda dobro!
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom07">Potvrda lozinke</label>
+                    <input asp-for="@Model.PotvrdiLozinku" type="password" class="form-control" id="validationCustom07" placeholder="Porvda lozinke">
+                    <div class="valid-feedback">
+                        Izgleda dobro!
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button class="btn btn-primary col-md-12" type="submit">Spremi</button>
+        </form>
+    </div>
+    <br />
+</section>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+
